@@ -1,3 +1,5 @@
+.plan
+_backup/
 _site/
 .sass-cache/
 .jekyll-cache/

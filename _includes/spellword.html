@@ -1,0 +1,14 @@
+{% assign words = include.spellword | split: '_' %}
+{% capture heading %}
+  {% for word in words %}
+    {{ word | capitalize }}
+  {% endfor %}
+{% endcapture %}
+
+<h2>{{heading}}</h2>
+{% for spell in site.spells %}
+  {% if spell.path contains include.spellword %}
+  * [{{spell.title | downcase | split: "_" | join: " " }}]({{site.baseurl}}{{spell.url}})
+  {% endif %}
+{% endfor %}
+

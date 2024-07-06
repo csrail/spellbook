@@ -4,3 +4,18 @@
 
 layout: home
 ---
+
+The longest memory can be recorded by the shortest pencil.
+
+Perfect chaos in imperfect order.
+
+
+Cross-docking facilities moves heterogenous specifics to homogenous generalisations.
+
+Simple broad strokes are better than fine clumsy strokes.
+
+The accountant who dislikes debt confronts the sales executive who dislikes turning business away.
+
+Contemplation precedes action.  Action proceeds contemplation.
+
+<br>

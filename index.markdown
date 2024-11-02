@@ -5,6 +5,8 @@
 layout: home
 ---
 
+If you use 'complex' to describe a problem, you do not understand the dimensions of the problem.  Choose other words.
+
 The longest memory can be recorded by the shortest pencil.
 
 Perfect chaos in imperfect order.

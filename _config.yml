@@ -35,6 +35,8 @@ collections:
     output: true
 plugins:
   - jekyll-feed
+# enable future dated posts to be generated
+future: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.

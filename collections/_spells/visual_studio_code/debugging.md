@@ -3,7 +3,7 @@ layout: spell
 date: 04-11-2024
 ---
 
-Writing `console.log()` or `Console.WriteLine()` is not an effective nor exhaustive method for debugging a runtime.  Dissuade yourself from using this and defer towards using breakpoints instead.
+Writing `console.log()` or `Console.WriteLine()` is not an effective nor exhaustive method for debugging a runtime.  Dissuade yourself from using this and instead use breakpoints.
 
 Apply a breakpoint and run the program in debugging mode (as opposed to release mode) to start the debugging session.  When the breakpoint is reached use "Step into", to get a granular view of the execution; use "Step over" to pass over the block and move to the next block of execution.
 

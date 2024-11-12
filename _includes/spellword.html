@@ -1,7 +1,7 @@
 {% assign words = include.spellword | split: '_' %}
 {% capture heading %}
   {% for word in words %}
-    {{ word | capitalize }}
+    {{ word | downcase }}
   {% endfor %}
 {% endcapture %}
 

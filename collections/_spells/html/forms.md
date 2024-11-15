@@ -128,7 +128,7 @@ The relation $T$ is anti-symmetric, all elements $x$ have an attribute $y$, if t
 ```html
 <div>
     <label for="A"></label>
-    <input id="A" name="B" value="A">
+    <input id="A" name="A" value="B">
 </div>
 ```
 

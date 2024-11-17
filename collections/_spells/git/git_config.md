@@ -25,6 +25,7 @@ g config --global alias.cfg 'config --global'
 g cfg alias.a add
 g cfg alias.cm 'commit -m'
 g cfg alias.s status
+g cfg alias.d diff
 g cfg alias.ds 'diff --staged'
 g cfg alias.r reset
 g cfg alias.l log

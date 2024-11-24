@@ -29,6 +29,11 @@ g cfg alias.d diff
 g cfg alias.ds 'diff --staged'
 g cfg alias.r reset
 g cfg alias.l log
+g cfg alias.c checkout
+g cfg alias.cb 'checkout -b'
+g cfg alias.b branch
+g cfg alias.m merge
+g cfg alias.p push
 ```
 
 To remove an alias, edit the global config file directly and remove the line containing the alias:

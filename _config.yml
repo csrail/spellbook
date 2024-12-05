@@ -33,6 +33,8 @@ collections_dir: collections
 collections:
   spells:
     output: true
+  executive:
+    output: true
 plugins:
   - jekyll-feed
 # enable future dated posts to be generated

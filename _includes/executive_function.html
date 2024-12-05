@@ -1,0 +1,17 @@
+{% assign words = include.fx | split: '_' %}
+{% capture heading %}
+  {% for word in words %}
+    {{ word | downcase }}
+  {% endfor %}
+{% endcapture %}
+
+<h2>{{heading}}</h2>
+{% for execution in site.executive %}
+  {% assign display_name = execution.title | downcase | split: "_" | join: " " %}
+  {% assign file_name = execution.title | downcase | append: '.md' %}
+  {% assign filepath = include.fx | append: '/' | append: file_name %}
+  {% if execution.path contains filepath %}
+  * [{{display_name}}]({{site.baseurl}}{{execution.url}})
+  {% endif %}
+{% endfor %}
+

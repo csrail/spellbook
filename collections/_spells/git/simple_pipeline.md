@@ -3,6 +3,13 @@ layout: spell
 date: 24-11-2024
 ---
 
+Establish a new repo:
+
+```shell
+# private repo
+gh repo create $FOLDER_NAME --private --clone --template csrail/template-repo-name
+```
+
 Create a new branch and make the branch active:
 ```shell
 g cb feature

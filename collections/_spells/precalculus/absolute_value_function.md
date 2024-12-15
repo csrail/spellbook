@@ -12,7 +12,8 @@ f(x) =
 		-x, x < 0
 	\end{array}
 \right.
-$$
+$$\\
+<br>
 
 Given a value $x$, the function $f(x)$ returns the absolute value of $x$ such that when $x \geq 0$, return $x$, and when $x < 0$, return $-x$
 

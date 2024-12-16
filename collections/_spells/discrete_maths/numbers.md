@@ -13,7 +13,7 @@ $$\mathbb{R}\backslash \mathbb{Q}$$ is the set of irrational numbers.\\
 <br>
 $$\mathbb{R}$$ is the set of real numbers.\\
 <br>
-$$\mathbb{C}$$ is the set of complex numbers.
+$$\mathbb{C} = \{ a + bi :\ a,b \in \mathbb{R} :\ i = \sqrt{-1}\ \}$$ is the set of complex numbers.
 
 <br>
 

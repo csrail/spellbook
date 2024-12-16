@@ -21,7 +21,7 @@ $$\mathbb{C}$$ is the set of complex numbers.
 
 <br>
 
-$\mathbb{N} \subset \mathbb{Z} \subset [\mathbb{Q} \cap (\mathbb{R}\backslash \mathbb{Q})] \subset \mathbb{R}$
+$\mathbb{N} \subset \mathbb{Z} \subset [\mathbb{Q} \cap (\mathbb{R}\backslash \mathbb{Q})] \subset \mathbb{R} \subset \mathbb{C}$
 
 <br>
 

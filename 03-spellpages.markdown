@@ -4,6 +4,7 @@ title: Spellpages
 ---
 
 {% include spellword.html spellword="algorithms" %}
+{% include spellword.html spellword="builds" %}
 {% include spellword.html spellword="c_language" %}
 {% include spellword.html spellword="calculus" %}
 {% include spellword.html spellword="cybersecurity" %}

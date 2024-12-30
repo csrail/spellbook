@@ -1,6 +1,6 @@
 ---
 layout: spell
-date: 31-12-2024
+date: 30-12-2024
 ---
 
 left square bracket $[$ for inclusion\\

@@ -1,6 +1,6 @@
 ---
 layout: spell
-date: 30-12-2024
+date: 29-12-2024
 ---
 
 Adding functions is commutative:

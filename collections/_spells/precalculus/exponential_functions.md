@@ -75,3 +75,6 @@ zero to the zero is not defined.
 <br>
 - $\|a^{2}\| = \|a\|^{2} = a^{2}$\\
 The absolute value of $a$ squared is the same as the absolute value of $a$, squared, which is the same as $a$ squared without the absolute value signs.
+<br>
+<br>
+- $a^{x}a^{y} \Leftrightarrow x = y$

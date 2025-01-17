@@ -41,3 +41,25 @@ To remove an alias, edit the global config file directly and remove the line con
 ```bash
 g cfg --edit
 ```
+
+<br>
+
+Set up to use vscode for difftooling:
+
+```bash
+# in .gitconfig file
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+```
+
+```shell
+# in command line
+g cfg alias.dt 'difftool'
+g cfg alias.dts 'difftool --staged'
+```

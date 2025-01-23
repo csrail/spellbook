@@ -64,4 +64,21 @@ List comprehensions draw upon the idea of set theory where a subset is generated
 squareEvens :: [Int] -> [Int]
 #              = [transform | drawing from set, filter]
 squareEvens xs = [x^2 | x <- xs, even x]
+
+# the <- drawing action should be the first consideration:
+# the element is drawn from the set
+
+# the filter should be the second consideration:
+# the filter must evaluate to a Boolean
+# True keeps the element, False discards the element
+
+# the transformation should be the third and final consideration:
+# if there is no transformation, record the element as it is
+# if there is a transformation, apply the transformation as needed
+
+# when all the above has taken place, a new set is formed, a subset of the set
+
+takeEvens :: [Int] -> [Int]
+#            = [no transformation | drawing from set, predicate]
+takeEvens xs = [x | <- xs, even x]
 ```

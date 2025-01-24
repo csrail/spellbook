@@ -50,7 +50,7 @@ Guard clauses place multiple `|` guards ahead of a final `otherwise` statement t
 
 <br>
 
-Lambda expressions relate a function definition closer to its type definition. The `_` lambda enables a function to be defined in place so that readability is improved and indicating that a function is being returned.
+Lambda expressions relate a function definition closer to its type definition. The `\` lambda enables a function to be defined in place so that readability is improved and indicating that a function is being returned.
 
 <br>
 

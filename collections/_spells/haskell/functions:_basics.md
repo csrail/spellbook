@@ -27,14 +27,14 @@ The function definition takes multiple forms to satisfy various logical operatio
 Pattern matching is the entry point into function definition. Patterns occur on the left side of the "equation" which represents the inputs that are expected, while the right side of the "equation" are the response outputs: how we want the function to transform the data's type.
 
 ```haskell
-# match on empty list
-# match on list with elements
+-- match on empty list
+-- match on list with elements
 head :: [a] -> a
 head []     = []
 head (x:xs) = x
 
-# since xs isn't used, this can be ommitted
-# by implementing wildcard pattern matching
+-- since xs isn't used, this can be ommitted
+-- by implementing wildcard pattern matching
 head :: [a] -> a
 head []    = []
 head (x:_) = x
@@ -62,23 +62,23 @@ List comprehensions draw upon the idea of set theory where a subset is generated
 
 ```haskell
 squareEvens :: [Int] -> [Int]
-#              = [transform | drawing from set, filter]
+--             = [transform | drawing from set, filter]
 squareEvens xs = [x^2 | x <- xs, even x]
 
-# the <- drawing action should be the first consideration:
-# the element is drawn from the set
+-- the <- drawing action should be the first consideration:
+-- the element is drawn from the set
 
-# the filter should be the second consideration:
-# the filter must evaluate to a Boolean
-# True keeps the element, False discards the element
+-- the filter should be the second consideration:
+-- the filter must evaluate to a Boolean
+-- True keeps the element, False discards the element
 
-# the transformation should be the third and final consideration:
-# if there is no transformation, record the element as it is
-# if there is a transformation, apply the transformation as needed
+-- the transformation should be the third and final consideration:
+-- if there is no transformation, record the element as it is
+-- if there is a transformation, apply the transformation as needed
 
-# when all the above has taken place, a new set is formed, a subset of the set
+-- when all the above has taken place, a new set is formed, a subset of the set
 
 takeEvens :: [Int] -> [Int]
-#            = [no transformation | drawing from set, predicate]
+--           = [no transformation | drawing from set, predicate]
 takeEvens xs = [x | <- xs, even x]
 ```

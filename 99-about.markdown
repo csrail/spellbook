@@ -6,15 +6,29 @@ permalink: /about/
 
 Bachelor of Computer Science with a minor in Data Analytics.
 
-## 2024
+## 2025
+
 ### Trimester A
-* COMPX101 - Introduction to Programming
-* CSMAX175 - Introduction to Cybersecurity
-* DATAX121 - Introduction to Statistical Methods
-* MGSYS101 - Digital Business and Supply Chain Management
+
+- COMPX201 - Data Structures and Algorithms
+- COMPX216 - Artificial Intelligence
+- COMPX234 - Systems and Networking
+- DATAX221 - Statistical Data Analysis
+
+<br>
+
+## 2024
 
 ### Trimester B
-* COMPX102 - Object Oriented Programming
-* COMPX310 - Machine Learning
-* CSMAX270 - Cultural Perspectives for Computing and Mathematical Sciences
-* MATHS133 - Discrete Structures
+
+- COMPX102 - Object Oriented Programming
+- <span style="color:#22A55A;">COMPX310 - Machine Learning (!!)</span> --- a 3rd year paper studied in 1st year.
+- CSMAX270 - Cultural Perspectives for Computing and Mathematical Sciences
+- MATHS135 - Discrete Structures
+
+### Trimester A
+
+- COMPX101 - Introduction to Programming
+- CSMAX175 - Introduction to Cybersecurity
+- DATAX121 - Introduction to Statistical Methods
+- MGSYS101 - Digital Business and Supply Chain Management

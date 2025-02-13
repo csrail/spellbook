@@ -5,19 +5,30 @@
 layout: home
 ---
 
-If you use 'complex' to describe a problem, you do not understand the dimensions of the problem.  Choose other words.
+Writing clarifies thinking.
+<br>
+This Spellbook has a constellation of important spells that should not be forgotten.
 
-The longest memory can be recorded by the shortest pencil.
+<br>
 
-Perfect chaos in imperfect order.
+For every problem there exists an executive function that solves. [$\forall p \exists x$]({% link 02-executive.markdown %}) writes on management, strategy and leadership.
+<br>
+$~~$[$\Rightarrow$ deliverables]({% link _executive/executive/deliverable.md %})
 
+Spells must be prepared in advance before they can be used. [Spellpages]({% link 03-spellpages.markdown %}) has inscriptions on mathematics, computer science and programming.
+<br>
+$~~$[$\Rightarrow$ fundamental theorem of calculus]({% link _spells/calculus/fundamental_theorem.md %})
 
-Cross-docking facilities moves heterogenous specifics to homogenous generalisations.
+<br>
+
+---
+
+<br>
+
+## Musings
 
 Simple broad strokes are better than fine clumsy strokes.
 
-The accountant who dislikes debt confronts the sales executive who dislikes turning business away.
-
-Contemplation precedes action.  Action proceeds contemplation.
+If you use 'complex' to describe a problem, you do not understand the dimensions of the problem. Choose other words.
 
 <br>

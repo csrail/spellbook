@@ -27,7 +27,7 @@ $~~$[$\Rightarrow$ fundamental theorem of calculus](/spellbook/spells/calculus/f
 
 <br>
 
-## Musings
+## Canon
 
 Simple broad strokes are better than fine clumsy strokes.
 

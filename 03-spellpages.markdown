@@ -14,6 +14,7 @@ title: Spellpages
 {% include spellword.html spellword="haskell" %}
 {% include spellword.html spellword="html" %}
 {% include spellword.html spellword="javascript" %}
+{% include spellword.html spellword="networking" %}
 {% include spellword.html spellword="precalculus" %}
 {% include spellword.html spellword="python" %}
 {% include spellword.html spellword="shell" %}

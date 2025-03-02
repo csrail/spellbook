@@ -17,5 +17,6 @@ title: Spellpages
 {% include spellword.html spellword="networking" %}
 {% include spellword.html spellword="precalculus" %}
 {% include spellword.html spellword="python" %}
+{% include spellword.html spellword="rust" %}
 {% include spellword.html spellword="shell" %}
 {% include spellword.html spellword="visual_studio_code" %}

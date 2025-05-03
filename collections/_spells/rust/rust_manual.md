@@ -40,3 +40,22 @@ $\rightarrow$ cargo configuration file initialised as `Cargo.toml`
 <br>
 
 ### Chapter 2: Basic Program demonstration
+
+Crates $\rightarrow$ a collection of Rust source code files
+
+- Binary crate $\rightarrow$ the executable program being developed.
+- Library crate $\rightarrow$ code to be used as source code in other programs, cannot be executed on its own.
+
+`prelude` $\rightarrow$ library that is automatically brought into scope for every program\
+`use` $\rightarrow$ keyword to bring other libraries into scope
+
+[`Cargo.toml`](https://toml.io/en/) $\rightarrow$ configuration file that manages dependencies.\
+[Semantic Versioning](https://semver.org) $\rightarrow$ specification for dependency versioning.
+
+`let mut variable_name = String::new()` $\rightarrow$ `=` binds the RHS to the LHS\
+`let variable_name: type` $\rightarrow$ type declaration: the colon indicates that the variable's type will be annotated\
+_Shadowing_ $\rightarrow$ above pattern allows another value to be bound to the variable while still reusing the same name; useful when changing data types.
+
+`Result` $\rightarrow$ an enum type that is returned from function calls, enabling error handling to be managed. The enum has the variants `Ok` and `Err`, when `Err` is returned this error needs to be managed.
+
+`match` $\rightarrow$ an expression which handles different results. It is like a special switch block with the emphasis on how different patterns specified by `enum` types are handled.

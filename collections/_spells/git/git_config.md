@@ -3,8 +3,7 @@ layout: spell
 date: 08-11-2024
 ---
 
-
-Find a full listing of your git configuration.  The `--show-origin` flag indicates the source, either global or local.
+Find a full listing of your git configuration. The `--show-origin` flag indicates the source, either global or local.
 
 ```bash
 git config --list --show-origin
@@ -28,7 +27,8 @@ g cfg alias.s status
 g cfg alias.d diff
 g cfg alias.ds 'diff --staged'
 g cfg alias.r reset
-g cfg alias.l log
+g cfg alias.l 'log --graph'
+g cfg alias.la 'log --all --graph'
 g cfg alias.c checkout
 g cfg alias.cb 'checkout -b'
 g cfg alias.b branch

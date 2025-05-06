@@ -53,7 +53,7 @@ Crates $\rightarrow$ a collection of Rust source code files
 [Semantic Versioning](https://semver.org) $\rightarrow$ specification for dependency versioning.
 
 `let mut variable_name = String::new()` $\rightarrow$ `=` binds the RHS to the LHS\
-`let variable_name: type` $\rightarrow$ type declaration: the colon indicates that the variable's type will be annotated\
+`let variable_name: type` $\rightarrow$ type declaration: the colon indicates that the variable's type will be annotated
 
 `Result` $\rightarrow$ an enum type that is returned from function calls, enabling error handling to be managed. The enum has the variants `Ok` and `Err`, when `Err` is returned this error needs to be managed.
 
@@ -61,7 +61,7 @@ Crates $\rightarrow$ a collection of Rust source code files
 
 <br>
 
-### Chapter 3:
+### Chapter 3: Logic flow, Memory management
 
 #### variables, mutability
 
@@ -100,7 +100,7 @@ $\rightarrow$ numbers\
 $\rightarrow$ Boolean\
 $\rightarrow$ characters
 
-_integer type_ $\rightarrow$ numbers without a fractional component\
+_integer type_ $\rightarrow$ numbers without a fractional component
 
 _unsigned integer_ $\rightarrow$ ranges from $[0, 2^n - 1]$\
 e.g. `u8` is a unsigned 8-bit integer $\rightarrow [0, 2^8 -1] \rightarrow$ $[0,255]$
@@ -175,3 +175,64 @@ $\rightarrow$ c.f. in lower level langagues, invalid memory can be accessed.
 <br>
 
 #### functions
+
+`snake_case` $\rightarrow$ to write function names and variable names
+
+`fn` keyword to define a function; as long as the function is defined in the same scope that can be seen by the caller.\
+$\rightarrow$ add `->` after the parameter declarations and before the curly bracket to specify the return type.
+
+_parameter declarations_ $\rightarrow$ specification of the function's signature where type must be specified; the type annotations informs the compiler about the arguments that can be passed to the function.
+
+_statements_ $\rightarrow$ instructions that perform an action but do not return a value $\Rightarrow$ end with a `;`\
+$\rightarrow$ defining a function is a statement\
+$\rightarrow$ assignments are a statement
+
+_expressions_ $\rightarrow$ evaluate to a resultant value $\Rightarrow$ do not end with a `;`
+$\rightarrow$ calling a function is an expression\
+$\rightarrow$ calling a macro is an expression\
+$\rightarrow$ a value is an expression\
+$\rightarrow$ creating a new scope block with curly braces is an expression
+
+<br>
+
+#### control flow
+
+`if` conditional $\rightarrow$ expects an explicit `bool` type and non-Boolean types are not implicitly converted to a Boolean type like in Ruby or Javascript.
+
+`match` $\rightarrow$ a branching construct which supersedes multiple `else if` statements.
+
+_conditional assignment_ $\rightarrow$ conditionally assign a value to a variable; follows a ternary operation?
+
+```rust
+let condition = true;
+// 5 is assigned to number
+// note types returned in the if and else arms must be the same
+let number = if condition { 5 } else { 6 };
+```
+
+`break` $\rightarrow$ exits the current loop\
+$\rightarrow$ possible to return a value e.g. `break x;`
+
+`continue` $\rightarrow$ skip remaining code in the loop and go to next iteration of the loop
+
+`return` $\rightarrow$ exits the current function to return a value (all loops foregone).
+
+named loops $\rightarrow$ enables break to apply to a loop outside the current loop.
+
+```rust
+'outer_loop: loop {
+    // other statements executed
+    loop {
+        // inner loop statements executed
+        break 'outer_loop
+    }
+}
+```
+
+`while` $\rightarrow$ a construct which pieces together `loop`, `if`, `else` and `break` in a nicer format
+
+`for` $\rightarrow$ executes code for each item of a collection; safer than `while` construct as it avoids index out of bounds; faster than a `while` construct since the conditional does not need to be evaluated
+
+`for` with `Range` $\rightarrow$ iterate loop for a given number of times
+
+### Chapter 4: Ownership

@@ -22,7 +22,7 @@ Bachelor of Computer Science with a minor in Data Analytics.
 ### Trimester B
 
 - COMPX102 - Object Oriented Programming
-- <span style="color:#22A55A;">COMPX310 - Machine Learning (!!)</span> --- a 3rd year paper studied in 1st year.
+- <span style="color:#22A55A;">COMPX310 - Machine Learning (!!)</span>
 - CSMAX270 - Cultural Perspectives for Computing and Mathematical Sciences
 - MATHS135 - Discrete Structures
 

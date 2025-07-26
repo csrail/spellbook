@@ -38,7 +38,7 @@ library(car)
 qqPlot(lm_object$residuals)
 ```
 
-## Shapiro-Wilks Test
+### Shapiro-Wilk Test
 
 [$\Rightarrow$ Shapiro Wilk Test](/spellbook/spells/data_analytics/shapiro_wilk_test.html)
 
@@ -74,12 +74,28 @@ plot(lm_object, which=3)
 
 Assess whether there are outliers in the residuals.
 
-- Outliers can all be observed in the previous plots. For the Fitted vs Residuals, the outlier will be in the unit of the response variable. For the Scale-Location Plot, the outlier will be a positive standardised value that has been square rooted $\rightarrow$ if standardised, 95% of the output should be within -2 to 2 $\rightarrow$ then the absolute value taken so 95% of the output should be withint 0 to 2 $\rightarrow$ then after square rooting, the large values are anything greater than 1.414
+### Previous Plots
+
+- Outliers can all be observed in the previous plots.
+  - For the Fitted vs Residuals, the outlier will be in the unit of the response variable.
+  - For the Scale-Location Plot, the outlier will be a positive standardised value that has been square rooted\
+    $\rightarrow$ if standardised, 95% of the output should be within -2 to 2\
+    $\rightarrow$ then the absolute value taken so 95% of the output should be withint 0 to 2\
+    $\rightarrow$ then after square rooting, the large values are anything greater than 1.414
+  - For the QQ Plot if the residual it outside the confidence band for its quantile, then it will be an outlier.
+
+### Residuals vs Leverage Plot, Cook's Distance
+
+- Residuals located beyond a Cook's Distance of 1 will have high leverage and be an outlier, and therefore have high influence on the model fit.
 
 ```r
 # get Standardised Residuals vs Leverage plot with Cook's Distance overlay
 plot(lm_object, which=5)
 ```
+
+## Bottom Line
+
+When the assumptions are not met for a regression model, the next best step involves a transformation of the response or the predictors before solving for $\hat{\beta}$ coefficients.
 
 ## Appendix
 

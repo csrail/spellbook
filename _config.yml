@@ -35,6 +35,8 @@ collections:
     output: true
   executive:
     output: true
+  runes:
+    output: true
 plugins:
   - jekyll-feed
 # enable future dated posts to be generated

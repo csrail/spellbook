@@ -1,0 +1,18 @@
+{% assign words = include.rune | split: '_' %}
+{% capture heading %}
+  {% for word in words %}
+    {{ word | downcase }}
+  {% endfor %}
+{% endcapture %}
+
+<h2>{{heading}}</h2>
+{% for rune in site.runes %}
+  {% assign display_name = rune.title | downcase | split: "_" | join: " " %}
+  {% assign file_name = rune.title | downcase | append: '.md' %}
+  {% assign filepath = include.fx | append: '/' | append: file_name %}
+  {% if rune.path contains filepath %}
+  * [{{display_name}}]({{site.baseurl}}{{rune.url}})
+  {% endif %}
+{% endfor %}
+
+

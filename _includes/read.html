@@ -9,10 +9,9 @@
 {% for rune in site.runes %}
   {% assign display_name = rune.title | downcase | split: "_" | join: " " %}
   {% assign file_name = rune.title | downcase | append: '.md' %}
-  {% assign filepath = include.fx | append: '/' | append: file_name %}
+  {% assign filepath = include.rune | prepend: '/' | append: '/' | append: file_name %}
   {% if rune.path contains filepath %}
   * [{{display_name}}]({{site.baseurl}}{{rune.url}})
   {% endif %}
 {% endfor %}
-
 

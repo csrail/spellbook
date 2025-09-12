@@ -310,6 +310,8 @@ interval
 -- 1 day, 1 week, 1 year, 1 century...
 ```
 
+<br>
+
 CAST: transforming values from one type to another
 
 ```sql

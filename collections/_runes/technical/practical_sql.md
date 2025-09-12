@@ -214,7 +214,7 @@ ORDER BY salary DESC;
 
 Title: Understanding Data Types
 
-Mettle: 
+Mettle: Managing data types for strings, numbers and dates in relation to size constraints and specificity.
 
 Summary: 
 

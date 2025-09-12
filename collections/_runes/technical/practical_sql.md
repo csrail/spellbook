@@ -33,10 +33,31 @@ Mettle: Populating a simple database: create table and insert rows.
 
 Summary:
 
+```sql
+CREATE DATABASE [[database]];
+
+-- where [[database]] is the name of the database
+```
+
+```sql
+CREATE TABLE [[table]] (
+    [dataType column | column <- [[columns]]]
+);
+
+-- where dataType is a legal data type that can be initialised
+```
+
+```sql
+INSERT INTO [[table]] ([[columns]])
+VALUES [value | value <- [[values]]];
+```
+
+<br>
+
 The `postgres` is a default database to connect to to run operations; right-click Query-Tool -> write script -> execute script; refresh server.
 
 ```sql
-CREATE DATABSE analysis;
+CREATE DATABASE analysis;
 ```
 
 Engage the database: `analysis/[username]@Postgres 17`
@@ -189,3 +210,145 @@ ORDER BY salary DESC;
 
 <br>
 
+### Chapter 3
+
+Title: Understanding Data Types
+
+Mettle: 
+
+Summary: 
+
+Managing Strings
+```sql
+-- varchar holds up to n characters
+varchar(n)
+
+-- varchar holds n characters, positions not used are padded with whitespace
+char(n)
+
+-- text holds up to 1 GB of characters
+-- 1 byte a character
+-- 1KB 1000 characters
+--- 1MB 1,000,000 characters
+--- 1GB 1,000,000,000 characters
+text
+```
+
+<br>
+
+Managing Numbers:
+
+- Integers
+- Auto-incrementing Integers
+- Decimal Numbers
+  - Fixed-Point Numbers
+  - Floating-Point Types
+
+Integers:
+```sql
+smallint
+-- defer to bigint unless constraints is applied
+
+integer
+-- defer to bigint unless constraint is applied
+
+bigint
+-- use as a default
+```
+
+Auto-incrementing Integers
+```sql
+smallserial
+
+serial
+
+bigserial
+```
+
+Decimal Numbers: Fixed-Point Numbers, exact math
+```sql
+numeric([[precision]], [[scale]])
+-- where precision represents the total number of digits to store
+-- where scale is the number of digits to the right of the decimal point to store
+
+decimal([[precision]], [[scale]])
+-- decimal is an alias for numeric
+```
+
+Decimal Numbers: Floating-Point, inexact math
+```sql
+-- precision varies based on input, choosing the smallest possible precision
+
+real
+-- 6 digit precision
+
+double precision
+-- 15 digit precision
+```
+
+<br>
+
+Managing Dates and Times
+
+```sql
+date
+-- YYYY-MM-DD
+
+time with time zone
+-- HH:MM:SS TZ
+
+timestamp with time zone
+-- YYYY-MM-DD HH:MM:SS TZ
+-- now()
+--
+-- time zone options:
+--   time zone e.g. EST
+--   relative to UTC e.g. -8
+--   location e.g. Australia/Melbourne
+
+interval
+-- 1 day, 1 week, 1 year, 1 century...
+```
+
+CAST: transforming values from one type to another
+
+```sql
+SELECT CAST([[column]] AS [[data_type]])
+FROM [[table]]
+```
+
+Micellaneous Data Types:
+- Boolean
+- Geometric
+- Network address
+- UUID, Universally Unique Identifier
+- Structured formats: XML, JSON
+
+<br>
+
+Exercise Q1
+
+```sql
+CREATE TABLE travel(
+    id bigserial,
+    mileage decimal(4,1)
+);
+```
+
+Exercise Q2
+```sql
+CREATE TABLE driver(
+    id bigserial,
+    first_name varchar(100),
+    last_name varchar(100)
+);
+-- separate first and last name so easy to query and order
+```
+
+<br>
+
+Note: below timestamp is equivalent to 00:00 UTC.  The +13 indicates the offset, so 13:00 less 13 is 00:00 UTC
+
+```
+2018-12-31 13:00:00+13
+```

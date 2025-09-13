@@ -355,6 +355,8 @@ Note: below timestamp is equivalent to 00:00 UTC.  The +13 indicates the offset,
 2018-12-31 13:00:00+13
 ```
 
+<br>
+
 ### Chapter 4
 
 Title: Importing and Exporting Data
@@ -461,3 +463,120 @@ WITH (FORMAT CSV, HEADER, DELIMITER ',');
 Exercise Q3
 
 No, data type `numeric(3,8)` has the precision and scale set up the wrong way round.  It is not sensible for the scale to be larger than the precision.
+
+<br>
+
+### Chapter 5
+
+Title: Basic Math and Stats with SQL
+
+Mettle: Basic Math functions and WITHIN GROUP semantic.
+
+Summary: 
+
+Human readable column names and using them for ordering:
+```sql
+SELECT [[column]] AS [[label]]
+FROM [[table]]
+ORDER BY [[label]] [[ASC|DESC]];
+```
+
+<br>
+
+Rounding:
+```sql
+SELECT round(([[expression]]), [[scale]]) AS [[label]];
+
+-- where expression is a sequence of arithmetic operations applied to columns
+-- where scale determines the number of places to round to
+```
+
+<br>
+
+Aggregate Functions: Sum
+```sql
+SELECT sum([[column]]) AS [[label]]
+FROM [[table]];
+```
+
+Aggregate Functions: Average
+```sql
+SELECT round(avg([[column]]), [[scale]]) AS [[label]]
+FROM [[table]];
+```
+
+<br>
+
+Percentile Function: Median, continuous
+```sql
+SELECT
+    percentile_cont(.5)
+    WITHIN GROUP (ORDER BY [[column]])
+FROM [[table]];
+
+-- where percentile_cont(.5) will report the median value when the total count is even
+```
+
+Percentile Function: Median, discrete
+```sql
+SELECT
+    percentile_disc(.5)
+    WITHIN GROUP (ORDER BY [[column]])
+FROM [[table]];
+
+-- where percentile_disc(.5) will report the last value in the first 50 percent of the numbers
+```
+
+<br>
+
+Percentile Function: Lower Quartile, Median, Upper Quartile
+```sql
+SELECT percentile_cont(array[.25,.5.75])
+       WITHIN GROUP (ORDER BY [[column]]) AS [[label]]
+FROM [[table]];
+
+-- where [[label]] should naturally be "quartiles"
+```
+
+Percentile Function: Lower Quartile, Median, Upper Quartile in separate rows
+```sql
+SELECT unnest(
+             percentile_cont(array[.25,.5.75])
+             WITHIN GROUP (ORDER BY [[column]])
+             ) AS [[label]]
+FROM [[table]];
+```
+
+<br>
+
+Exercise Q1
+
+```sql
+SELECT PI() * 5^2
+```
+
+Exercise Q2
+```sql
+SELECT geo_name,
+       round((CAST (p0010005 AS numeric(8,1)) / p0010001) * 100,2) AS "pct_American_Indian/Alaska Native"
+FROM us_counties_2010
+WHERE state_us_abbreviation = 'NY'
+ORDER BY "pct_American_Indian/Alaska Native" DESC;
+```
+
+Ahkwesáhsne is a reserved place for the Mohawk tribe.  It is a territory that borders modern day USA and Canada.  This reservation allows the people of the Mohawk tribe to move freely between the USA and Canada borders.
+
+Exercise Q3
+```sql
+SELECT percentile_cont(.5)
+WITHIN GROUP (ORDER BY p0010001) AS "50th Percentile"
+FROM us_counties_2010
+WHERE state_us_abbreviation = 'CA'
+UNION ALL
+SELECT percentile_cont(.5)
+WITHIN GROUP (ORDER BY p0010001) AS "50th Percentile"
+FROM us_counties_2010
+WHERE state_us_abbreviation = 'NY'
+```
+
+The 2010 median county population was higher in California compared to New York, 179140.5 to 91301 respectively.

@@ -354,3 +354,110 @@ Note: below timestamp is equivalent to 00:00 UTC.  The +13 indicates the offset,
 ```
 2018-12-31 13:00:00+13
 ```
+
+### Chapter 4
+
+Title: Importing and Exporting Data
+
+Mettle: Importing and Exporting Data with temporary table management and copy subquery.
+
+Summary:
+
+Import data from specified path into an initialised table.
+```sql
+COPY [[table]]
+FROM [[path]]
+WITH (FORMAT CSV, HEADER);
+
+-- where path is a single quote enclosed path to the csv file
+```
+
+```sql
+COPY [[table]] ([[columns]])
+FROM [[path]]
+WITH (FORMAT CSV, HEADER);
+
+-- where columns are columns in the csv file which are a subset of the columns in the table
+```
+
+<br>
+
+
+Delete all records from a table.
+```sql
+DELETE FROM [[table]];
+```
+
+<br>
+
+Use temporary tables to assist with data population of table while inserting default values.
+```sql
+CREATE TEMPORARY TABLE [[temp_table]] (LIKE [[table]]);
+
+COPY [[temp_table]] ([[columns]])
+FROM [[path]]
+WITH (FORMAT CSV, HEADER);
+
+INSERT INTO [[table]] ([[columns]])
+SELECT [[col1]], [[value]], [[colN]]
+FROM [[temp_table]];
+-- where [[value]] is the default value to set for the corresponding column in a set of [[columns]]
+
+DROP TABLE [[temp_table]];
+```
+
+<br>
+
+Export data from table to specified path.
+```sql
+COPY [[table]]
+TO [[path]]
+WITH (FORMAT CSV, HEADER, DELIMITER [[delimiter]]);
+
+-- where [[delimiter]] is a single quote enclosed character.
+```
+
+```sql
+COPY [[table]] ([[columns]])
+TO [[path]]
+WITH (FORMAT CSV, HEADER, DELIMITER [[delimiter]]);
+
+-- where [[columns]] specifies the subset of columns to export from the table.
+```
+
+```sql
+COPY ([[select]])
+TO [[path]]
+WITH (FORMAT CSV, HEADER, DELIMITER [[delimiter]]);
+
+-- where [[select]] is a table produced by a SELECT query with qualifiers
+```
+
+<br>
+
+Exercise Q1
+
+```sql
+COPY credit (id, movie, actor)
+FROM 'path/to/import_file.csv'
+WITH (FORMAT CSV, HEADER, DELIMITER ':', QUOTE '#');
+
+-- the argument to QUOTE tells the database to include the value enclosed in that surrounding character
+```
+
+Exercise Q2
+
+```sql
+COPY (
+    SELECT geo_name, state_us_abbreviation, housing_unit_count_100_percent
+    FROM us_counties_2010
+    ORDER BY housing_unit_count_100_percent DESC
+    LIMIT 20
+  )
+TO 'path/to/export_file.txt'
+WITH (FORMAT CSV, HEADER, DELIMITER ',');
+```
+
+Exercise Q3
+
+No, data type `numeric(3,8)` has the precision and scale set up the wrong way round.  It is not sensible for the scale to be larger than the precision.

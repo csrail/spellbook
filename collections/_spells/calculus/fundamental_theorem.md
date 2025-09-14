@@ -22,7 +22,7 @@ But we know for every ordered pair $(x, f(x))$, this ordered pair relates to two
 
 $\Rightarrow (x-\Delta x, f(x-\Delta x)) \rightarrow (x,f(x)) \rightarrow (x+\Delta x, f(x+\Delta x))$
 
-Thus if we take the gradient between two ordered pairs $(x_0, f(x_0)) \wedge (x_1, f(x_1))$, we can approximate the gradient for a target $x_0$ value.  The closer the $x_1$ value used, the better the approximation of the gradient.  We can apply this process of taking a closer $x_1$ value to the target $x_0$ value an <u>infinite number of times</u> to calculate a better approximation.  This approach leads us to <u>taking the limit</u>, of which $x_1$ approches 0 but never reaches it, expressed as $\lim_{\Delta x\to 0}$.
+Thus if we take the gradient between two ordered pairs $(x_0, f(x_0)) \wedge (x_1, f(x_1))$, we can approximate the gradient for a target $x_0$ value.  The closer the $x_1$ value used, the better the approximation of the gradient.  We can apply this process of taking a closer $x_1$ value to the target $x_0$ value an <u>infinite number of times</u> to calculate a better approximation.  This approach leads us to <u>taking the limit</u>, of which $x_1$ approaches 0 but never reaches it, expressed as $\lim_{\Delta x\to 0}$.
 
 Thus the <u>instantaneous rate of change</u> of a function $f(x)$ for a given $x$ value is:
 

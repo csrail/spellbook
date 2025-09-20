@@ -580,3 +580,194 @@ WHERE state_us_abbreviation = 'NY'
 ```
 
 The 2010 median county population was higher in California compared to New York, 179140.5 to 91301 respectively.
+
+<br>
+
+### Chapter 6
+
+Title: Joining Tables in a Relational Database
+
+Mettle: Separate tables for each entity, relations are informed through table design and realised through joins.
+
+Summary: 
+
+While working for IBM, Edgar F. Codd published a paper in 1970 called "A Relational Model of Data for Large Shared Data Banks". This lead to a sequence of events:
+
+- specifications for database design
+- development of SQL
+- relational model by normalisation:
+  - build tables that eliminate duplicate data
+  - easier maintenance
+  - increase flexibility in writing queries
+
+<br>
+
+Perform a join between two tables, selecting all columns
+```sql
+SELECT *
+FROM [[table1]] [[JOIN_type]] [[table2]]
+ON [[table1]].[[foreign_key]] = [[table2]].[[primary_key]]
+```
+
+<br>
+
+Select specific columns from a table
+```sql
+SELECT [table.column | table <- [[tables]], column <- [[columns]]]
+FROM [[table1]] [[JOIN_type]] [[table2]]
+ON [[table1]].[[foreign_key]] = [[table2]].[[primary_key]]
+```
+
+```sql
+SELECT *
+FROM employees JOIN departments
+ON employees.dept_id = departments.dept_id;
+```
+
+<br>
+
+Aliases
+```sql
+SELECT [table.column | table <- [[tables]], column <- [[columns]]]
+FROM [[table1]] AS [[alias1]] LEFT JOIN [[table2]] AS [[alias2]]
+ON [[alias1]].[[key]] = [[alias2]].[[key]]
+
+-- alias improves readability by contracting the full table name into something shorter
+```
+
+```sql
+SELECT lt.id,
+       lt.left_school,
+       rt.right_school
+FROM schools_left AS lt LEFT JOIN schools_right AS rt
+ON lt.id = rt.id
+```
+
+<br>
+
+JOIN types:
+- `INNER JOIN` returns rows that exist in both tables.
+- `LEFT JOIN` returns all rows that exist in the left table, and associated rows for the right table if there is a match, otherwise provision null values
+- `RIGHT JOIN` returns all rows that exist in the right table, and associated rows for the left table if there is a match, otherwise provision null values
+- `FULL OUTER JOIN` returns the exact same as left join, with the addition of all remainder unmatched rows in the right table included.
+- `CROSS JOIN` returns all possible combinations of rows between the two tables. `ON` clause does not need to be specified.
+
+Use Cases:
+- `INNER JOIN`
+  - when you only need to find rows shared across all tables
+- `LEFT JOIN`, `RIGHT JOIN`
+  - when query result must contain all rows from a single table
+  - when searching for missing values between tables, e.g. comparing an entity across time periods
+- `FULL OUTER JOIN`
+  - when you merge two data sources with partial overlap
+  - when you visualise the degree which two tables share matching values
+- `CROSS JOIN`
+  - combinatorial checklist, O(n!) e.g. ways to style
+
+
+<br>
+
+Looking for NULL values programmatically:
+```sql
+SELECT *
+FROM [[table1]] LEFT JOIN [[table2]]
+ON [[table1]].[[key]] = [[table2]].[[key]]
+WHERE [[table2]].[[key]] [[IS NULL | IS NOT NULL]]
+```
+
+<br>
+
+Joining multiple tables:
+```sql
+SELECT [table.column | table <- [[tables]], column <- [[columns]]]
+FROM [[table1]] AS [[alias1]]
+[LEFT JOIN table AS [[alias]]
+ ON [[alias1]].[[key]] = [[alias]].[[key]] | table <- [[tables]]]
+```
+
+```sql
+SELECT lt.id,
+       lt.left_school,
+	   enr.enrollment,
+	   gr.grades
+FROM schools_left AS lt
+LEFT JOIN schools_enrollment as enr
+ON lt.id = enr.id
+LEFT JOIN schools_grade as gr
+ON lt.id = gr.id
+```
+
+<br>
+
+Applying math functions:
+```sql
+SELECT [table.column AS [[alias]] | table <- [[tables]], column <- [[columns]]]
+       ++
+       [ math x.[[column]] y.[[column]] AS [[alias]] | (x, y) <- [[tables]]]
+FROM [[table1]] AS [[alias1]]
+[LEFT JOIN table AS [[alias]]
+ ON [[alias1]].[[key]] = [[alias]].[[key]] | table <- [[tables]]]
+```
+
+```sql
+SELECT usc2010.geo_name,
+       usc2010.state_us_abbreviation AS state,
+       usc2010.p0010001 AS pop_2010,
+	   usc2000.p0010001 AS pop_2000,
+	   usc2010.p0010001 - usc2000.p0010001 AS raw_change,
+	   round((CAST(usc2010.p0010001 AS numeric(9,2)) - usc2000.p0010001)
+	   / usc2000.p0010001 * 100,1) AS pct_change
+FROM us_counties_2000 AS usc2000
+INNER JOIN us_counties_2010 AS usc2010
+ON usc2000.state_fips = usc2010.state_fips
+  AND usc2000.county_fips = usc2010.county_fips
+  AND usc2000.p0010001 <> usc2010.p0010001
+ORDER BY pct_change DESC
+```
+
+<br>
+
+Exercises Q1
+```sql
+SELECT c2010.state_fips,
+       c2010.county_fips,
+	   c2000.state_fips,
+       c2010.geo_name,
+       c2010.state_us_abbreviation AS state
+FROM us_counties_2010 AS c2010
+LEFT JOIN us_counties_2000 AS c2000
+ON c2010.state_fips = c2000.state_fips
+AND c2010.county_fips = c2000.county_fips
+WHERE c2000.state_fips IS NULL
+```
+
+Exercises Q2
+```sql
+SELECT percentile_cont(.5)
+	   WITHIN GROUP (ORDER BY 
+           round(((CAST(c2010.p0010001 AS numeric(9,2)) - c2000.p0010001) / c2000.p0010001)* 100,2))
+           AS median_pct_change
+FROM us_counties_2010 AS c2010
+LEFT JOIN us_counties_2000 AS c2000
+ON c2010.state_fips = c2000.state_fips
+AND c2010.county_fips = c2000.county_fips
+AND c2010.p0010001 <> c2000.p0010001
+```
+
+Exercises Q3
+```sql
+SELECT usc2010.geo_name,
+       usc2010.state_us_abbreviation AS state,
+       usc2010.p0010001 AS pop_2010,
+	   usc2000.p0010001 AS pop_2000,
+	   usc2010.p0010001 - usc2000.p0010001 AS raw_change,
+	   round((CAST(usc2010.p0010001 AS numeric(9,2)) - usc2000.p0010001)
+	   / usc2000.p0010001 * 100,1) AS pct_change
+FROM us_counties_2000 AS usc2000
+INNER JOIN us_counties_2010 AS usc2010
+ON usc2000.state_fips = usc2010.state_fips
+  AND usc2000.county_fips = usc2010.county_fips
+  AND usc2000.p0010001 <> usc2010.p0010001
+ORDER BY pct_change ASC
+LIMIT 1
+```

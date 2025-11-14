@@ -22,3 +22,11 @@ pandas
 scikit-learn
 matplotlib
 ```
+
+<br>
+
+If dependencies were already installed and you want to include them in a reusable `requirements.txt` file, then run the below.
+
+```bash
+pip freeze > requirements.txt
+```

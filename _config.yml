@@ -33,6 +33,8 @@ collections_dir: collections
 collections:
   runes:
     output: true
+  glossa:
+    output: true
   executive:
     output: true
   spells:

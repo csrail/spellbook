@@ -1,0 +1,17 @@
+{% assign words = include.language | split: '_' %}
+{% capture heading %}
+  {% for word in words %}
+    {{ word | downcase }}
+  {% endfor %}
+{% endcapture %}
+
+<h2>{{heading}}</h2>
+{% for tongue in site.glossa %}
+  {% assign display_name = tongue.title | downcase | split: "_" | join: " " %}
+  {% assign file_name = tongue.title | downcase | append: '.md' %}
+  {% assign filepath = include.language | append: '/' | append: file_name %}
+  {% if tongue.path contains filepath %}
+  * [{{display_name}}]({{site.baseurl}}{{tongue.url}})
+  {% endif %}
+{% endfor %}
+

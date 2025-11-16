@@ -8,6 +8,13 @@ Bachelor of Computer Science with a minor in Data Analytics.
 
 ## 2025
 
+### Trimester B
+
+- COMPX202 - Mobile Computing and Software Architecture
+- COMPX230 - Computer Hardware and Microprocessors
+- <span style="color:#8462BD;">COMPX307 - Principles of Programming Languages</span>
+- <span style="color:#22A55A;"> DATAX321 - Advanced Data Analysis</span>
+
 ### Trimester A
 
 - COMPX201 - Data Structures and Algorithms
@@ -22,7 +29,7 @@ Bachelor of Computer Science with a minor in Data Analytics.
 ### Trimester B
 
 - COMPX102 - Object Oriented Programming
-- <span style="color:#22A55A;">COMPX310 - Machine Learning (!!)</span>
+- <span style="color:#22A55A;">COMPX310 - Machine Learning </span>
 - CSMAX270 - Cultural Perspectives for Computing and Mathematical Sciences
 - MATHS135 - Discrete Structures
 

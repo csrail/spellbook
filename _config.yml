@@ -31,11 +31,11 @@ linkedin_username: cornelius-soon-430597aa
 theme: minima
 collections_dir: collections
 collections:
-  spells:
+  runes:
     output: true
   executive:
     output: true
-  runes:
+  spells:
     output: true
 plugins:
   - jekyll-feed

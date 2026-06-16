@@ -13,11 +13,11 @@ This Spellbook has a constellation of important spells that should not be forgot
 
 <br>
 
-For every problem there exists an executive function that solves. [$\forall p \exists x$](/spellbook/02-executive.html) writes on management, strategy and leadership.
+For every problem there exists an executive function that solves. [$\forall p \exists x$](/spellbook/03-executive.html) writes on management, strategy and leadership.
 <br>
 $~~$[$\Rightarrow$ deliverables](/spellbook/executive/executive/deliverable.html)
 
-Spells must be prepared in advance before they can be used. [Spellpages](/spellbook/03-spellpages.html) has inscriptions on mathematics, computer science and programming.
+Spells must be prepared in advance before they can be used. [Spellpages](/spellbook/04-spellpages.html) has inscriptions on mathematics, computer science and programming.
 <br>
 $~~$[$\Rightarrow$ fundamental theorem of calculus](/spellbook/spells/calculus/fundamental_theorem.html)
 
